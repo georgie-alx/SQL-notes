@@ -1,4 +1,4 @@
-# SQL Fundamentals
+# SQL Fundamental STATEMENTS
 
 ## SELECT
 
@@ -73,6 +73,7 @@ SELECT COUNT(DISTINCT first_name, last_name) FROM tbl;
 `SELECT column_name1, columne_name2 FROM table_name WHERE (conditions);`
 <br><br>
 _Filtering of rows using the following operators:_
+
 |**Operator** |**Description**|
 |:----------:|:----------:|
 | =    | Equal    |
@@ -103,6 +104,15 @@ WHERE col1 = 4 OR col2 = 'a';
 | 4    | b | ...    | xx    |
 <br>
 
+```
+SELECT COUNT(*) FROM tbl
+WHERE col1 <= 50;
+```
+|**Count** |
+|----------|
+| 37 |
+<br>
+
 More complicated SELECT WHERE statements:
 - `SELECT WHERE` + `JOIN` - querying from a joined table
 ```
@@ -118,7 +128,16 @@ WHERE amount != 0.0
 ORDER BY payment_date DESC
 LIMIT 5;
 ```
-
+- `SELECT WHERE` + `JOIN` + `ORDER BY` + `LIMIT` - First 10 payments from joined table
+```
+SELECT * 
+FROM customer
+LEFT JOIN payment
+ON customer.customer_id = payment.customer_id
+WHERE payment.amount != 0.0
+ORDER BY payment.payment_date ASC
+LIMIT 10;
+```
 <br>
 
 
@@ -127,7 +146,9 @@ LIMIT 5;
 To sort rows
 
 `SELECT column_name1, column_name2 FROM table_name ORDER BY col1 ASC`
+<br>
 `SELECT column_name1, column_name2 FROM table_name ORDER BY col1 DESC`
+<br>
 
 ```
 SELECT col1, col2, col3 from tbl 
@@ -168,6 +189,43 @@ LIMIT 2;
 | A    | xxx    | 100    |
 | A    | xxx    | 400    |
 <br>
+
+## BETWEEN
+
+`SELECT * FROM tbl WHERE column_name BETWEEN xx AND xx`
+<br>
+`SELECT * FROM tbl WHERE column_name NOT BETWEEN xx AND xx`
+<br>
+`SELECT * FROM tbl WHERE date NOT BETWEEN '2024-04-30' AND '2025-04-30'`
+<br><br>
+Notes: 
+- Date format is YYYY-MM-DD
+- Days start at 00:00, which means BETWEEN date1 AND date2 = BETWEEN date1 00:00 AND date2 00:00 (i.e. date2 is excluded from the range)
+
+## IN
+
+`SELECT column_name FROM table_name WHERE column_name IN ('xxx','xxx')`
+<br>
+
+```
+SELECT col1, col2, col3 FROM payment
+WHERE col1 IN (0.99,1.98,1.99);
+```
+|**Col 1**|**Col 2**|**Col 3**|
+|----------|----------|----------|
+| 0.99    | xxx    | xxx    |
+| 1.99    | xxx    | xxx    |
+
+<br>
+
+```
+SELECT col1, col2, col3 FROM payment
+WHERE col1 NOT IN (0.99,1.98,1.99);
+```
+|**Col 1**|**Col 2**|**Col 3**|
+|----------|----------|----------|
+| 3.99    | xxx    | xxx    |
+| 8.99    | xxx    | xxx    |
 
 
 
