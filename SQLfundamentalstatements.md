@@ -229,3 +229,28 @@ WHERE col1 NOT IN (0.99,1.98,1.99);
 
 
 
+## LIKE / ILIKE
+
+`LIKE` is case sensitive, `ILIKE` is case-insensitive.
+
+### Wildcards (%) and (_)
+_% matches any sequence of characters_ <br>
+`SELECT * WHERE column_name LIKE '%a'` - string ends with 'a'
+<br>
+`SELECT * WHERE column_name ILIKE 'a%'` - string starts with 'a' or 'A'
+<br>
+
+_\_ matches any single character_ <br>
+`SELECT * WHERE column_name LIKE 'Mission Impossible _'` - e.g. Mission Impossible 2
+`SELECT * WHERE column_name LIKE 'Version#__ - %` - e.g. Version#A7
+<br> 
+
+_Combine them for more advanced matching_ <br>
+`SELECT * WHERE column_name LIKE '_her%` - e.g. C _her_ yl, T _her_ esa, S _her_ ri
+<br><br>
+For more information on pattern matching and regular expressions in PostgreSQL, refer to this [Medium article](https://towardsdatascience.com/pattern-matching-and-regular-expressions-in-postgresql-cd1fa76e5f3f) or [postgreSQL documentation](https://www.postgresql.org/docs/current/functions-matching.html).
+
+
+
+
+
