@@ -251,6 +251,22 @@ _Combine them for more advanced matching_ <br>
 For more information on pattern matching and regular expressions in PostgreSQL, refer to this [Medium article](https://towardsdatascience.com/pattern-matching-and-regular-expressions-in-postgresql-cd1fa76e5f3f) or [postgreSQL documentation](https://www.postgresql.org/docs/current/functions-matching.html).
 
 
+# AGGREGATION FUNCTIONS - AVG() ROUND() COUNT() MIN() MAX() SUM()
 
+## MIN() and MAX()
+`SELECT MIN(replacement_cost) FROM film` and `SELECT MAX(replacement_cost) FROM film`
+Combining the 2 above: `SELECT MIN(replacement_cost), MAX(replacement_cost) FROM film`
+
+## COUNT()
+`COUNT(film_id) FROM film` is the same as `COUNT(*) FROM film`
+
+## AVG()
+`SELECT AVG(replacement_cost) FROM film`
+
+## ROUND()
+`SELECT ROUND(AVG(replacement_cost),2) FROM film`
+
+## SUM()
+`SELECT SUM(replacement_cost) FROM film`
 
 
