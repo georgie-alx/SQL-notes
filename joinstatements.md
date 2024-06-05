@@ -2,7 +2,9 @@
 
 ## INNER JOIN
 An inner join results in the set of records that match in both tables.
-
+- Table order won't matter in an inner join
+- using JOIN without the INNER: PostgreSQL will treat it as INNER JOIN
+  
 ```
 SELECT * FROM TableA
 INNER JOIN TableB
@@ -37,3 +39,16 @@ ON Registrations.Name = Logins.Name
 |----------|----------|----------|----------|
 | 1    | Andrew    | 2    | Andrew    |
 | 2    | Bob    | 4    | Bob    |
+
+_Specifying wanted columns:_
+```
+SELECT reg_id, Logins.Name, log_id
+FROM Registrations INNER JOIN Logins
+ON Registrations.Name = Logins.Name
+```
+
+|**Registration ID** |**Name**|**Login ID**|
+|----------|----------|----------|
+| 1    | Andrew    | 2    |
+| 2    | Bob    | 4    |
+
