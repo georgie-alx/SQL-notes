@@ -102,8 +102,8 @@ OR Login_id is null
 - table order matters
 
 ```
-SELECT * FROM TableA [Left Table]
-LEFT OUTER JOIN TableB [Right Table]
+SELECT * FROM TableA --Left Table
+LEFT OUTER JOIN TableB --Right Table
 ON TableA.col_match = TableB.col_match
 ```
 
