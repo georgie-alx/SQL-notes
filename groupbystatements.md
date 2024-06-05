@@ -71,7 +71,9 @@ LIMIT 5
 
 ```
 SELECT store_id, COUNT(*) FROM customer
+WHERE staff_id = 2
 GROUP BY store_id
 HAVING COUNT(*)>300
 ```
+Note: `WHERE` should come before `GROUP BY`
 
