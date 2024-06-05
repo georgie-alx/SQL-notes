@@ -72,7 +72,7 @@ ON TableA.col_match = TableB.col_match
 | _null_    | _null_    | 3    | Yolanda    |
 
 
-## "OUTER JOIN" - FULL OUTER JOIN + HAVING
+## "OUTER JOIN" - FULL OUTER JOIN + WHERE
 - Results in records that only appear in 1 table
 
 ```
