@@ -40,7 +40,7 @@ ON Registrations.Name = Logins.Name
 | 1    | Andrew    | 2    | Andrew    |
 | 2    | Bob    | 4    | Bob    |
 
-_Specifying wanted columns:_
+### _Inner Join - Specifying wanted columns:_
 ```
 SELECT reg_id, Logins.Name, log_id
 FROM Registrations INNER JOIN Logins
@@ -97,7 +97,7 @@ OR Login_id is null
 | _null_    | _null_    | 1    | Xavier    |
 | _null_    | _null_    | 3    | Yolanda    |
 
-"LEFT OUTER JOIN"
+## LEFT OUTER JOIN - Full Left Table Records
 - results in the set of records in the left table + any **matched** records from the right table
 - table order matters
 
@@ -110,14 +110,23 @@ ON TableA.col_match = TableB.col_match
 e.g.
 ```
 SELECT * FROM Registrations
-FULL OUTER JOIN Logins
+LEFT OUTER JOIN Logins
 ON Registrations.Name = Logins.Name
-WHERE Registrations.reg_id is null
-OR Login_id is null
 ```
 |**Registration ID** |**Name**|**Login ID**|**Name**|
 |----------|----------|----------|----------|
+| 1    | Andrew    | 2    | Andrew    |
+| 2    | Bob    | 4    | Bob    |
 | 3    | Charlie    |  _null_   |  _null_   |
 | 4    | David    |  _null_   |  _null_   |
-| _null_    | _null_    | 1    | Xavier    |
-| _null_    | _null_    | 3    | Yolanda    |
+
+## LEFT OUTER JOIN - Unmatched Left Table Records
+```
+SELECT * FROM Registrations
+LEFT OUTER JOIN Logins
+ON Registrations.Name = Logins.Name
+WHERE login_id IS null
+```
+|**Registration ID** |**Name**|**Login ID**|**Name**|
+| 3    | Charlie    |  _null_   |  _null_   |
+| 4    | David    |  _null_   |  _null_   |
