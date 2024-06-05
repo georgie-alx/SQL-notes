@@ -251,6 +251,7 @@ _Combine them for more advanced matching_ <br>
 For more information on pattern matching and regular expressions in PostgreSQL, refer to this [Medium article](https://towardsdatascience.com/pattern-matching-and-regular-expressions-in-postgresql-cd1fa76e5f3f) or [postgreSQL documentation](https://www.postgresql.org/docs/current/functions-matching.html).
 
 
-
+## LENGTH
+`LENGTH(col)`
 
 
