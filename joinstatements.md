@@ -131,3 +131,5 @@ WHERE login_id IS null
 |**Registration ID** |**Name**|**Login ID**|**Name**|
 | 3    | Charlie    |  _null_   |  _null_   |
 | 4    | David    |  _null_   |  _null_   |
+<br>
+
