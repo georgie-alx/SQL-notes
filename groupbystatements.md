@@ -58,7 +58,7 @@ HAVING sum(amount)>200
 ORDER BY SUM(amount) DESC
 LIMIT 5
 ```
-1. `customer_id` col selected 
+`customer_id` col selected 
 
 ## GROUP BY date_col
 
