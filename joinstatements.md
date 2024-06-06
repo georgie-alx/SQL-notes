@@ -1,5 +1,7 @@
 # JOIN Statements
 
+![SQL Joins](https://miro.medium.com/v2/resize:fit:720/format:webp/1*GigXPhr4Ue2zbrgIIoB8Lw.png)
+
 ## INNER JOIN
 An inner join results in the set of records that match in both tables.
 - Table order does not matter
