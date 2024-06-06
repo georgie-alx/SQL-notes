@@ -9,6 +9,12 @@ Always use single quotes `' '` to represent a string.
 Format: `YYYY-MM-DD` <br>
 If no time is specified, assumed to be 00:00. Note for filter ranges!
 
+### Changing Date to String
+```
+SELECT TO_CHAR(payment_date, 'MM-DD-YYYY')
+FROM payment
+```
+
 ## Timestamps and EXTRACT
 `SHOW TIMEZOME` -> Asia/Singapore
 `SELECT NOW()` -> "2024-06-06 11:08:00.811796+08"
