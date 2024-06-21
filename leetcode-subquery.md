@@ -65,4 +65,13 @@ WHERE (player_id, event_date) IN
 )
 ```
 
-
+## [Last Person to Fit in the Bus](https://leetcode.com/problems/last-person-to-fit-in-the-bus/description/?envType=study-plan-v2&envId=top-sql-50)
+```
+SELECT person_name FROM (
+SELECT *, SUM(weight) OVER (ORDER BY turn) AS sum_weight
+FROM Queue
+) t
+WHERE sum_weight <= 1000
+ORDER BY sum_weight DESC
+LIMIT 1
+```
