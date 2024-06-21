@@ -34,14 +34,35 @@ group by user_id
 
 ## [Product Price at a Given Date](https://leetcode.com/problems/product-price-at-a-given-date/description/?envType=study-plan-v2&envId=top-sql-50)
 ```
-WITH sub as  (select product_id,new_price  as price,change_date,
-ROW_NUMBER() over (partition by product_id order by change_date desc)  rn
-from Products where change_date<='2019-08-16' )
-select product_id, price from sub where rn = 1
-union
-select distinct(product_id),10 as price from Products where product_id not in 
-(select product_id from sub where rn = 1)
+WITH sub AS  (SELECT product_id, new_price AS price,change_date,
+ROW_NUMBER() OVER (PARTITION BY product_id ORDER BY change_date desc) rn
+FROM Products WHERE change_date<='2019-08-16' )
+SELECT product_id, price FROM sub WHERE rn = 1
+UNION
+SELECT distinct(product_id),10 AS price FROM Products WHERE product_id NOT IN
+(SELECT product_id FROM sub WHERE rn = 1)
 ```
 
+## [Product Sales Analysis III](https://leetcode.com/problems/product-sales-analysis-iii/description/?envType=study-plan-v2&envId=top-sql-50)
+```
+# Write your MySQL query statement below
+SELECT product_id, year AS first_year, quantity, price
+FROM Sales
+WHERE (product_id , year) IN (
+    SELECT product_id, min(year) FROM Sales GROUP BY product_id
+)
+```
+
+## [Game Play Analysis IV](https://leetcode.com/problems/game-play-analysis-iv/description/?envType=study-plan-v2&envId=top-sql-50)
+```
+SELECT ROUND(COUNT(DISTINCT player_id)/(SELECT COUNT(DISTINCT player_id) FROM Activity),2) As fraction 
+FROM Activity 
+WHERE (player_id, event_date) IN 
+(
+    SELECT player_id, DATE_ADD(MIN(event_date) , INTERVAL 1 day) AS event_date 
+    FROM Activity
+    GROUP BY player_id
+)
+```
 
 
