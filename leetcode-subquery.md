@@ -1,63 +1,22 @@
 # LeetCode Sub-Queries
 
-## Managers with at Least 5 Direct Reports
-Employee table:
-+-----+-------+------------+-----------+
-| id  | name  | department | managerId |
-+-----+-------+------------+-----------+
-| 101 | John  | A          | null      |
-| 102 | Dan   | A          | 101       |
-| 103 | James | A          | 101       |
-| 104 | Amy   | A          | 101       |
-| 105 | Anne  | A          | 101       |
-| 106 | Ron   | B          | 101       |
-+-----+-------+------------+-----------+
+## [Rising Temperature](https://leetcode.com/problems/rising-temperature/description/?envType=study-plan-v2&envId=top-sql-50)
 
-Write a solution to find managers with at least five direct reports.
-Return the result table in any order.
+```
+SELECT b.id FROM Weather As a
+JOIN Weather As b
+ON b.recordDate = DATE_ADD(a.recordDate, INTERVAL 1 day)
+WHERE b.temperature > a.temperature
+```
+
+## [Managers with at Least 5 Direct Reports](https://leetcode.com/problems/managers-with-at-least-5-direct-reports/?envType=study-plan-v2&envId=top-sql-50)
 
 ```
 SELECT name FROM Employee
 WHERE id in (select managerId from employee group by managerId having count(id) >= 5);
 ```
 
-## Students and Examinations
-Table: Students
-
-+---------------+---------+
-| Column Name   | Type    |
-+---------------+---------+
-| student_id    | int     |
-| student_name  | varchar |
-+---------------+---------+
-student_id is the primary key (column with unique values) for this table.
-Each row of this table contains the ID and the name of one student in the school.
-
-Table: Subjects
-
-+--------------+---------+
-| Column Name  | Type    |
-+--------------+---------+
-| subject_name | varchar |
-+--------------+---------+
-subject_name is the primary key (column with unique values) for this table.
-Each row of this table contains the name of one subject in the school.
-
-Table: Examinations
-
-+--------------+---------+
-| Column Name  | Type    |
-+--------------+---------+
-| student_id   | int     |
-| subject_name | varchar |
-+--------------+---------+
-There is no primary key (column with unique values) for this table. It may contain duplicates.
-Each student from the Students table takes every course from the Subjects table.
-Each row of this table indicates that a student with ID student_id attended the exam of subject_name.
-
-Write a solution to find the number of times each student attended each exam.
-
-Return the result table ordered by student_id and subject_name.
+## [Students and Examinations](https://leetcode.com/problems/students-and-examinations/description/?envType=study-plan-v2&envId=top-sql-50)
 
 ```
 SELECT s.student_id, s.student_name, sub.subject_name, COUNT(e.student_id) AS attended_exams
