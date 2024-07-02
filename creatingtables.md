@@ -22,5 +22,23 @@ CREATE TABLE db.Products
    ProductDescription   text NULL)
 ```
 
+## Populate Tables
 
+Standard Syntax
+```
+INSERT db.Products (ProductID, ProductName, Price, ProductDescription)
+  VALUES(20, 'Screwdriver', 5.20, 'Flat head')
+```
+
+Changing Order of Columns
+```
+INSERT db.Products (ProductName, ProductID, Price, ProductDescription)
+  VALUES('Screwdriver', 20, 5.20, 'Flat head')
+```
+
+Skip column list but keep values in order
+```
+INSERT db.Products
+  VALUES(20, 'Screwdriver', 5.20, 'Flat head')
+```
 
