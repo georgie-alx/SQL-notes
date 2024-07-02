@@ -1,6 +1,6 @@
 # JOIN Statements
 
-![SQL Joins](https://miro.medium.com/v2/resize:fit:720/format:webp/1*GigXPhr4Ue2zbrgIIoB8Lw.png)
+![SQL Joins](https://github.com/georgie-alx/SQL-notes/blob/main/images/SQLJoins.PNG)
 
 ## INNER JOIN
 An inner join results in the set of records that match in both tables.
