@@ -16,15 +16,15 @@ FROM payment
 ```
 
 ## Timestamps and EXTRACT
-`SHOW TIMEZOME` -> Asia/Singapore
-`SELECT NOW()` -> "2024-06-06 11:08:00.811796+08"
-`SELECT TIMEOFDAY()` -> "Thu Jun 06 11:08:32.782107 2024 +08"
-`SELECT CURRENT_TIME` -> "11:09:38.836122+08:00"
-`SELECT CURRENT_DATE` -> "2024-06-06"
+`SHOW TIMEZOME` -> Asia/Singapore <br>
+`SELECT NOW()` -> "2024-06-06 11:08:00.811796+08" <br>
+`SELECT TIMEOFDAY()` -> "Thu Jun 06 11:08:32.782107 2024 +08"<br>
+`SELECT CURRENT_TIME` -> "11:09:38.836122+08:00"<br>
+`SELECT CURRENT_DATE` -> "2024-06-06"<br>
 
 ### EXTRACT()
 `EXTRACT(YEAR FROM date_col)` -> e.g. "2024"
-- Can be used for YEAR, MONTH, QUARTER, DAY etc.
+- Can be used for YEAR, MONTH, QUARTER, DAY etc.<br>
 e.g.
 ``` SELECT EXTRACT(YEAR FROM payment_date) AS year FROM payment```
 returns `year` column with only the year info of the payment date
